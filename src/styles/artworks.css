@@ -1,4 +1,4 @@
-@keyframes fadeIn {
+@keyframes fadeIn { 
   from { opacity: 0; transform: translateY(-10px); }
   to { opacity: 1; transform: translateY(0); }
 }
@@ -8,17 +8,19 @@
   to { opacity: 1; transform: translateY(0); }
 }
 
+/* Main Page */
 .artwork-page {
   background: linear-gradient(135deg, #e6f0ff 0%, #d8e7ff 100%);
   color: #1a3d7c;
   min-height: 100vh;
-  padding: 30px 20px;
+  padding: 30px 4vw;
   display: flex;
   flex-direction: column;
   align-items: center;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/* Header */
 .artwork-page header {
   text-align: center;
   margin-bottom: 40px;
@@ -26,7 +28,7 @@
 }
 
 .artwork-page header h1 {
-  font-size: 2.4rem;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
   letter-spacing: 1px;
   font-weight: 700;
   margin-bottom: 10px;
@@ -34,20 +36,24 @@
 }
 
 .artwork-page header p {
-  font-size: 1.1rem;
+  font-size: clamp(0.9rem, 2.3vw, 1.2rem);
   color: #0d2247;
   opacity: 0.85;
+  max-width: 600px;
+  line-height: 1.5;
 }
 
+/* Gallery Grid */
 .artwork-page .gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 25px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: clamp(15px, 2vw, 30px);
   width: 100%;
-  max-width: 1250px;
+  max-width: 1300px;
   animation: fadeInUp 1s ease;
 }
 
+/* Artwork Card */
 .artwork-page .artwork-card {
   background: rgba(255, 255, 255, 0.75);
   backdrop-filter: blur(10px);
@@ -68,10 +74,10 @@
   width: 100%;
   height: 100%;
   background: linear-gradient(
-      120deg,
-      transparent 0%,
-      rgba(255, 255, 255, 0.45) 50%,
-      transparent 100%
+    120deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.45) 50%,
+    transparent 100%
   );
   transition: 0.7s;
   z-index: 2;
@@ -88,16 +94,16 @@
 
 .artwork-page .artwork-card img {
   width: 100%;
-  height: 100%;
-  display: block;
+  height: 260px;
   object-fit: cover;
-  border-bottom: 1px solid rgba(26, 61, 124, 0.15);
+  display: block;
 }
 
+/* Back Button */
 .artwork-page .back-link {
   margin-bottom: 30px;
   padding: 10px 22px;
-  font-size: 1rem;
+  font-size: clamp(0.9rem, 2.3vw, 1rem);
   background-color: #3a8ef6;
   color: white;
   border: none;
@@ -113,12 +119,22 @@
   transform: translateY(-2px);
 }
 
-@media (max-width: 400px) {
-  .artwork-page header h1 {
-    font-size: 1.8rem;
+/* --- Extra Mobile Tweaks --- */
+@media (max-width: 480px) {
+
+  .artwork-page {
+    padding: 20px 4vw;
   }
 
-  .artwork-page header p {
-    font-size: 0.9rem;
+  .artwork-page .artwork-card img {
+    height: 200px;
+  }
+
+  .artwork-page header {
+    margin-bottom: 25px;
+  }
+
+  .gallery {
+    gap: 18px;
   }
 }
