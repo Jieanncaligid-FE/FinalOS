@@ -1,0 +1,106 @@
+/* ==============================
+   NAVBAR GLOBAL STYLES
+============================== */
+.navbar {
+  width: 100%;
+  background: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 60px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  font-family: 'Inter', sans-serif;
+}
+
+.navbar--scrolled {
+  box-shadow:
+    0 4px 16px rgba(0, 0, 0, 0.08),
+    0 1px 0 rgba(0, 0, 0, 0.02);
+}
+
+.navbar .logo {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1d2d50;
+  cursor: pointer;
+}
+
+.navbar .logo span {
+  color: #07689f;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 40px;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar ul li {
+  position: relative;
+}
+
+.navbar ul li a {
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 16px;
+  color: #1d2d50;
+  padding-bottom: 4px;
+  transition: 0.3s ease;
+}
+
+.navbar ul li a:hover {
+  color: #07689f;
+}
+
+/* ==============================
+   ACTIVE PAGE INDICATOR
+============================== */
+.navbar ul li a.active {
+  color: #07689f;
+}
+
+.navbar ul li a.active::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: #07689f;
+  border-radius: 2px;
+}
+
+/* ==============================
+   RESPONSIVE NAVBAR
+============================== */
+@media (max-width: 900px) {
+  .navbar {
+    padding: 16px 40px;
+  }
+
+  .navbar ul {
+    gap: 25px;
+  }
+}
+
+@media (max-width: 600px) {
+  .navbar {
+    padding: 14px 20px;
+  }
+
+  .navbar ul {
+    gap: 14px;
+  }
+}
+.navbar ul li a {
+  color: #1d2d50 !important;
+}
+
+.navbar ul li a.active {
+  color: #07689f !important;
+}

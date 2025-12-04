@@ -1,0 +1,124 @@
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.artwork-page {
+  background: linear-gradient(135deg, #e6f0ff 0%, #d8e7ff 100%);
+  color: #1a3d7c;
+  min-height: 100vh;
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.artwork-page header {
+  text-align: center;
+  margin-bottom: 40px;
+  animation: fadeIn 1s ease;
+}
+
+.artwork-page header h1 {
+  font-size: 2.4rem;
+  letter-spacing: 1px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #15326a;
+}
+
+.artwork-page header p {
+  font-size: 1.1rem;
+  color: #0d2247;
+  opacity: 0.85;
+}
+
+.artwork-page .gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+  width: 100%;
+  max-width: 1250px;
+  animation: fadeInUp 1s ease;
+}
+
+.artwork-page .artwork-card {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(10px);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(26, 61, 124, 0.15);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  cursor: pointer;
+  border: 1px solid rgba(26, 61, 124, 0.1);
+  position: relative;
+}
+
+.artwork-page .artwork-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+      120deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.45) 50%,
+      transparent 100%
+  );
+  transition: 0.7s;
+  z-index: 2;
+}
+
+.artwork-page .artwork-card:hover::before {
+  left: 100%;
+}
+
+.artwork-page .artwork-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 12px 28px rgba(26, 61, 124, 0.25);
+}
+
+.artwork-page .artwork-card img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  border-bottom: 1px solid rgba(26, 61, 124, 0.15);
+}
+
+.artwork-page .back-link {
+  margin-bottom: 30px;
+  padding: 10px 22px;
+  font-size: 1rem;
+  background-color: #3a8ef6;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(58, 142, 246, 0.6);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  text-decoration: none;
+}
+
+.artwork-page .back-link:hover {
+  background-color: #1e6cd1;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 400px) {
+  .artwork-page header h1 {
+    font-size: 1.8rem;
+  }
+
+  .artwork-page header p {
+    font-size: 0.9rem;
+  }
+}
